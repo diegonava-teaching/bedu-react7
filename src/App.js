@@ -5,6 +5,9 @@ import { useState } from 'react';
 
 import { AccessAlarm, ThreeDRotation } from '@mui/icons-material';
 
+// import { ThemeProvider } from '@mui/system';
+import { styled } from '@mui/material/styles';
+
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
@@ -36,6 +39,11 @@ function VerticalDivider() {
     </Box>
   );
 }
+
+const MyCustomDiv = styled('div')({
+  backgroundColor: 'aliceblue',
+  padding: 4,
+});
 
 export default function App() {
   const [inputValue, setInputValue] = useState('');
@@ -116,13 +124,29 @@ export default function App() {
 
         <VerticalDivider />
 
-        <TextField
-          value={inputValue}
-          id='outlined-basic'
-          label='Outlined'
-          variant='outlined'
-          onChange={handleOnChange}
-        />
+        <Box
+          //Styled system Utilities
+          // padding={8}
+          // mt={10}
+          //Custom CSS (in JS) styles
+          sx={{
+            backgroundColor: 'gray',
+            ':hover': {
+              backgroundColor: 'lightgray',
+            },
+          }}
+        >
+          {/* //Styled Component */}
+          {/* <MyCustomDiv> */}
+          <TextField
+            value={inputValue}
+            id='outlined-basic'
+            label='Outlined'
+            variant='outlined'
+            onChange={handleOnChange}
+          />
+          {/* </MyCustomDiv> */}
+        </Box>
 
         <VerticalDivider />
 
